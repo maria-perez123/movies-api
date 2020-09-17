@@ -9,7 +9,20 @@ const moviesMock=[{"id":"ea769d8b-39de-46a8-bcb2-163da664881a","title":"Moulin R
 {"id":"0ee79dc8-b100-4aae-adb7-a46897e49f50","title":"Silent Night, Deadly Night 5: The Toy Maker","year":2005,"cover":"http://dummyimage.com/242x231.bmp/ff4444/ffffff","description":"Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.","duration":2016,"contentRating":"PG-13","source":"http://geocities.jp/sapien/varius/ut/blandit/non.js","tags":["Comedy","Drama|War","Drama|Mystery"]},
 {"id":"32be2d3f-8afb-41bc-8a51-36ca2af5e92f","title":"Treed Murray","year":1970,"cover":"http://dummyimage.com/243x246.png/dddddd/000000","description":"Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.\n\nMorbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.","duration":1974,"contentRating":"G","source":"https://chronoengine.com/interdum/mauris/ullamcorper/purus.json","tags":["Comedy|Drama|Romance","Drama"]}]
 
+function filteredMoviesMock(tag){
+    return moviesMock.filter(movie=> movie.tags.includes(tag));
+}
+class MoviesServiceMock{
+    async getMovies(){
+        return Promise.resolve(moviesMock);
+    }
+    async createMovie(){
+        return Promise.resolve(moviesMock[0]);
+    }
+}
 
 module.exports={
-    moviesMock
+    moviesMock,
+    filteredMoviesMock,
+    MoviesServiceMock
 }
