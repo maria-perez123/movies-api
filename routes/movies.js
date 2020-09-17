@@ -12,7 +12,8 @@ function moviesApi(app) {
 
     try {
       const movies = await moviesService.getMovies({ tags });
-
+      //throw new Error('error getting movies'); para observar manejo de errores
+      
       res.status(200).json({
         data: movies,
         message: 'movies listed'
