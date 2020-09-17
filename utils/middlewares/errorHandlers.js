@@ -22,11 +22,13 @@ function wrapError(err, req, res, next){
 }
 
 function errorHandler(err, req, res, next) { // eslint-disable-line
-  res.status(err.status || 500);
-  res.json(withErrorStack(err.message, err.stack));
+  const {output: {statusCode, payload}}=err;
+  res.status(statusCode);
+  res.json(withErrorStack(payload, err.stack));
 }
 
 module.exports = {
   logErrors,
-  errorHandler
+  errorHandler,
+  wrapError
 };
