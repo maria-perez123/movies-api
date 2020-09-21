@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors')
 const { config } = require('./config/index');
 
+const authApi=require('./routes/auth');
 const moviesApi= require('./routes/movies.js');
 const userMoviesApi=require('./routes/movies.js');
 
@@ -18,6 +19,7 @@ const notFoundHandler=require('./utils/middlewares/notFoundHandler');
 app.use(express.json());
 app.use(cors())
 //routes
+authApi(app);
 moviesApi(app);
 userMoviesApi(app);
 //catch 404
