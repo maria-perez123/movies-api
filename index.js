@@ -4,6 +4,7 @@ const cors = require('cors')
 const { config } = require('./config/index');
 
 const moviesApi= require('./routes/movies.js');
+const userMoviesApi=require('./routes/movies.js');
 
 const {
   logErrors,
@@ -17,7 +18,8 @@ const notFoundHandler=require('./utils/middlewares/notFoundHandler');
 app.use(express.json());
 app.use(cors())
 //routes
-moviesApi(app)
+moviesApi(app);
+userMoviesApi(app);
 //catch 404
 app.use(notFoundHandler);
 //errors middlewares
