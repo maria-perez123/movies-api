@@ -2,7 +2,7 @@ const express = require('express');
 const passport= require('passport')
 
 const UserMoviesService = require('../services/userMovies');
-const validationHandler = require('../utils/middleware/validationHandler');
+const validationHandler = require('../utils/middlewares/validationHandler');
 const scopesValidationHandler=require('../utils/middlewares/scopesValidationHandler');
 
 const { movieIdSchema } = require('../utils/schemas/movies');
